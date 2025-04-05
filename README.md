@@ -54,8 +54,6 @@ Tool 60+ özellik ile 6 ana kategoride hizmet sağlamaktadır:
 - Python 3.6+
 - Linux işletim sistemi
 - Sudo yetkileri
-- Gerekli Python paketleri (requirements.txt dosyasında listelenmiştir)
-
 
 ## 🚀 Kullanım
 
