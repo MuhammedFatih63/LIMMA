@@ -3492,7 +3492,6 @@ def mobile_forensics(self):
                 except KeyboardInterrupt:
                     print(f"\n{Fore.YELLOW}Program kapatılıyor...{Style.RESET_ALL}")
                     return 0
-
         except Exception as e:
             logging.error(f"Program hatası: {str(e)}")
             print(f"{Fore.RED}Kritik hata: {str(e)}{Style.RESET_ALL}")
@@ -3504,13 +3503,18 @@ def mobile_forensics(self):
 
 
 if __name__ == "__main__":
+    system_control = None
     try:
         system_control = LinuxSystemControl()
         system_control.check_platform()  
         system_control.main()
+    except KeyboardInterrupt:
+        print(f"\n{Fore.YELLOW}Program kapatılıyor...{Style.RESET_ALL}")
     except Exception as e:
         logging.error(f"Program başlatma hatası: {str(e)}")
         print(f"{Back.RED}Program başlatılamadı: {str(e)}{Style.RESET_ALL}")
         sys.exit(1)
     finally:
+        if system_control:
+            system_control.cleanup()
         print(f"{Fore.GREEN}Program sonlandırıldı.{Style.RESET_ALL}")
